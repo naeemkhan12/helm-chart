@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "lsdda-flask.fullname" . }}
+  labels:
+    app: {{ template "lsdda-flask.name" . }}
+    chart: {{ template "lsdda-flask.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "lsdda-flask.name" . }}
+    release: {{ .Release.Name }}
