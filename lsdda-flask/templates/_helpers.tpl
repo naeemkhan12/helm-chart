@@ -30,3 +30,6 @@ Create chart name and version as used by the chart label.
 {{- define "lsdda-flask.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+{{- define "mongodb.fullname" -}}
+{{- printf "%s-%s" .Release.Name "mongodb" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

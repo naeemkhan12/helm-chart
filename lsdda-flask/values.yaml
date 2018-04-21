@@ -6,8 +6,8 @@ replicaCount: 1
 
 image:
   repository: naeemrashid/flask-lsdda
-  tag: 0.0.1
-  pullPolicy: IfNotPresent
+  tag: test
+  pullPolicy: Always
 
 service:
   type: NodePort
